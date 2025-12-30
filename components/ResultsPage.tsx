@@ -20,62 +20,63 @@ const ResultsPage: React.FC<ResultsPageProps> = ({ answers, onContinue }) => {
 
   return (
     <div className="h-screen flex flex-col bg-[#1b4332] overflow-hidden">
-      {/* Reduced Height Hero Photo area */}
-      <div className="relative w-full h-[45vh] min-h-[300px] overflow-hidden flex-shrink-0">
+      {/* Hero Photo area com enquadramento otimizado */}
+      <div className="relative w-full h-[50vh] overflow-hidden flex-shrink-0">
         <img 
           src={IMAGES.hero} 
           alt={EXPERT_NAME} 
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top md:object-[center_20%]"
         />
-        {/* Subtle overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1b4332] via-transparent to-transparent" />
         
-        {/* Adjusted Position: Using top-[40%] to be slightly lower than previous [35%] */}
-        <div className="absolute top-[40%] left-0 w-full px-6 text-center z-20">
-          <div className="inline-block bg-[#d4af37] text-white px-3 py-1 rounded-full font-bold text-[10px] tracking-widest mb-2 shadow-lg animate-bounce uppercase border border-white/20">
+        {/* Camadas de Overlay para legibilidade premium */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1b4332] via-[#1b4332]/20 to-transparent" />
+        
+        {/* Conteúdo flutuante sobre a imagem */}
+        <div className="absolute bottom-10 left-0 w-full px-6 text-center z-20">
+          <div className="inline-block bg-[#d4af37] text-[#1b4332] px-4 py-1.5 rounded-full font-black text-[10px] tracking-[0.2em] mb-4 shadow-xl animate-bounce uppercase">
             Perfil Compatível
           </div>
-          <h1 className="text-white font-serif text-3xl font-bold leading-tight drop-shadow-md">
+          <h1 className="text-white font-serif text-4xl font-bold leading-tight drop-shadow-2xl">
             Você é a <br/>
-            <span className="italic">Paciente Ideal.</span>
+            <span className="italic text-[#d4af37]">Paciente Ideal.</span>
           </h1>
         </div>
       </div>
 
-      {/* Content Area - Flex-1 to fill remaining space */}
-      <div className="bg-[#1b4332] w-full flex-1 flex flex-col justify-between px-6 pt-6 pb-6 rounded-t-[2.5rem] -mt-8 relative z-30 shadow-2xl text-center border-t border-white/10">
-        <div className="max-w-sm mx-auto flex-1 flex flex-col justify-center">
-          <p className="text-white/90 text-sm md:text-base mb-6 leading-relaxed">
-            Com base nas suas respostas, o Método da <span className="text-[#d4af37] font-bold italic">Dra. {EXPERT_NAME}</span> consegue entregar exatamente a naturalidade e segurança que você procura.
+      {/* Area de Ação - Compacta para Mobile */}
+      <div className="bg-[#1b4332] w-full flex-1 flex flex-col justify-between px-6 pt-10 pb-8 rounded-t-[3rem] -mt-10 relative z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] text-center border-t border-white/10">
+        <div className="max-w-sm mx-auto flex-1 flex flex-col justify-start">
+          <p className="text-white/90 text-sm md:text-lg mb-8 leading-relaxed">
+            Com base no seu perfil, o Método da <span className="text-[#d4af37] font-bold italic">Dra. {EXPERT_NAME}</span> é a solução perfeita para entregar a naturalidade que você deseja.
           </p>
 
-          <div className="space-y-3 w-full">
+          <div className="space-y-4 w-full">
             <button 
               onClick={sendToWhatsApp}
-              className="w-full bg-[#d4af37] text-[#1b4332] font-black py-4 px-6 rounded-xl shadow-xl hover:scale-[1.02] active:scale-95 transition-transform text-base flex items-center justify-center gap-2 animate-pulse"
+              className="w-full bg-[#d4af37] text-[#1b4332] font-black py-5 px-6 rounded-2xl shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-[1.02] active:scale-95 transition-all text-base flex items-center justify-center gap-2 animate-pulse"
             >
-              1. ENVIAR MINHA AVALIAÇÃO À DRA.
+              1. ENVIAR AVALIAÇÃO À DRA.
             </button>
 
             <button 
               onClick={() => window.open(WHATSAPP_URL, '_blank')}
-              className="w-full bg-white text-[#1b4332] font-bold py-3 px-6 rounded-xl shadow-md hover:bg-gray-100 transition-colors text-sm"
+              className="w-full bg-white/10 border border-white/20 text-white font-bold py-4 px-6 rounded-2xl shadow-md hover:bg-white/20 transition-all text-sm"
             >
-              2. CHAMAR NO WHATSAPP SEM COMPROMISSO
+              2. WHATSAPP SEM COMPROMISSO
             </button>
 
             <button 
               onClick={onContinue}
-              className="w-full bg-transparent border border-white/20 text-white/50 font-medium py-2 px-6 rounded-xl hover:text-white transition-colors text-xs"
+              className="w-full bg-transparent text-white/40 font-bold py-2 px-6 rounded-xl hover:text-white transition-colors text-[10px] uppercase tracking-widest"
             >
-              3. NÃO ENVIAR E CONTINUAR NO SITE
+              3. CONTINUAR NO SITE
             </button>
           </div>
         </div>
         
-        <div className="mt-4 opacity-40">
-          <p className="font-signature text-2xl text-white tracking-widest">{EXPERT_NAME}</p>
+        <div className="mt-6">
+          <p className="font-signature text-3xl text-white/20">{EXPERT_NAME}</p>
         </div>
       </div>
     </div>
