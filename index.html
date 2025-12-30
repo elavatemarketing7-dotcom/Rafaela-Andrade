@@ -37,6 +37,10 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      /* Previne scroll quando o overlay está ativo */
+      .no-scroll {
+        overflow: hidden;
+      }
     </style>
   <script type="importmap">
 {
@@ -52,7 +56,6 @@
 </head>
   <body>
     <div id="root"></div>
-    <!-- Script principal apontando para o arquivo local -->
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
