@@ -22,31 +22,20 @@
       .font-signature {
         font-family: 'Great Vibes', cursive;
       }
-      .bg-primary {
-        background-color: #1b4332; /* Deep green for "Biomédica de coração" */
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
       }
-      .text-primary {
-        color: #1b4332;
-      }
-      .bg-accent {
-        background-color: #d4af37; /* Sophisticated gold */
-      }
-      .text-accent {
-        color: #d4af37;
-      }
-      /* Custom Animations */
       @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-10px); }
         100% { transform: translateY(0px); }
       }
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
       }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
     </style>
   <script type="importmap">
@@ -54,12 +43,16 @@
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.0"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <!-- Ponto de entrada crucial para a Vercel/Vite -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
